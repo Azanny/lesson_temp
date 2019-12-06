@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap');
+
+body{
+	background:#222;
+	font-family: 'Sulphur Point', sans-serif;
+	height:100vh;
+	width:100vw;
+	margin:0;
+	padding:100px;
+	box-sizing:border-box;
+	color:#fff
+}
+
+.preloader{
+	position:relative;
+	margin:0 auto;
+	width:250px;
+	height:250px;
+	border-radius:50%;
+	border:20px solid rgb(161, 161, 161);
+	background:transparent;
+	box-sizing:border-box
+}
+
+.preloader::before,.preloader::after{
+	content:'';
+	position: absolute;
+	display:block;
+	border-radius:50%;
+	box-sizing:border-box;
+}
+
+.preloader::before{
+	width:200px;
+	height:200px;
+	border:20px solid teal;
+	background: transparent;
+	border-right-color:transparent;
+	top: 5px;
+    left: 5px;
+}
+
+.preloader::after{
+	width:150px;
+	height:150px;
+	border:20px solid rgb(138, 189, 219);
+	border-left-color:transparent;
+	background: transparent;
+	top: 30px;
+    left: 30px;
+	
+}
+
+.preloader{
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-name:graypulse;
+}
+
+
+.preloader::after{
+	animation-iteration-count: infinite;
+	animation-name:spinReverse;
+	animation-timing-function: ease-in-out;
+	animation-duration: 3s;
+}
+
+.preloader::before{
+	animation-name:spin;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-duration: 3s;
+}
+/* 
+@keyframes spin{
+	from{
+		transform:rotate(0deg)
+	}
+	to{
+		transform:rotate(360deg)
+	}
+}
+
+
+@keyframes spinReverse{
+	from{
+		transform:rotate(0deg)
+	}
+	20%{
+		transform:rotate(-50deg)	
+	}
+	50%{
+		transform:rotate(200deg)
+	}
+	to{
+		transform:rotate(360deg)
+	}
+}
+
+
+@keyframes graypulse{
+	from{
+		transform:scale(.7,.7)
+	}
+	40%{
+		transform:scale(1.2,1.2)	
+	}
+	45%{
+		transform:scale(.9,.9)		
+	}
+	to{
+		transform:scale(1,1)	
+	}
+} */
+
+
+.triangle{
+	width:0px;
+	height:0px;
+	background: transparent;
+	border:50px solid transparent;
+	border-top:0;
+	border-bottom-color:blueviolet;
+	margin-bottom: 50px;
+}
+
+input[type="checkbox"]{
+	display:none
+}
+
+#rdlbl{
+	display:block;
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	background:gray;
+	cursor:pointer;
+	position:relative;
+
+}
+
+#rdlbl::before{
+	content:'';
+	display:none;
+	position:absolute;
+	top:5px;
+	left:5px;
+	border-radius:50%;
+	width:40px;
+	height:40px;
+	background-image:radial-gradient(circle,black,gray)
+}
+
+
+#rdbtn:checked+label:before{
+	display:block;
+}
+
+.select{
+	height:0;
+	width:100px;
+	overflow: hidden;
+	color:black;
+	background:rgb(142, 167, 167);
+	transition:height .5s ease
+}
+
+ul{list-style-type: none;
+padding:0}
+
+#selradio{
+	display:none;
+}
+
+#sellabel{
+	position: relative;
+	display:block;
+	width:100px;
+	height:30px;
+	cursor:pointer;
+	background:rgb(142, 167, 167);
+	border-radius: 5px;
+	color:black;
+	line-height:30px;
+	padding-left:5px;
+}
+
+#selradio:checked~.select{
+	height:100px
+}
+
+
+#sellabel::after{
+	content:'';
+	display:block;
+	position: absolute;
+	width:0;
+	height:0;
+	background:transparent;
+	border:15px solid;
+	border-top:#fff:
+}
